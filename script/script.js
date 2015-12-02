@@ -19,7 +19,7 @@ var path = d3.geo.path()
 var popByState = d3.map();
 
 //Scales
-var scaleR = d3.scale.sqrt().range([5,130]),
+var scaleR = d3.scale.sqrt().range([5,200]),
     scaleColor = d3.scale.linear().domain([70,90]).range(['white','red']);
 
 //import data
@@ -42,7 +42,8 @@ queue()
                 x0:centroid[0],
                 y0:centroid[1],
                 x:centroid[0],
-                y:centroid[1]
+                y:centroid[1],
+                r:scaleR( (popByState.get(d.properties.STATE)).pop )
             }
         });
         console.log(data);
